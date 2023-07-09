@@ -11,3 +11,6 @@ Thumbs.db
 OpenGL-tutorial_v*
 **.mtl
 .DS_Store
+cmake-build-debug-visual-studio/.cmake
+cmake-build-debug
+cmake-build-debug-visual-studio
