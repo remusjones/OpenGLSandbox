@@ -45,7 +45,7 @@ include_directories(
 set(ALL_LIBS
 	${OPENGL_LIBRARY}
 	glfw
-	GLEW_1130
+	GLEW_1130 "-static"
 )
 
 add_definitions(
