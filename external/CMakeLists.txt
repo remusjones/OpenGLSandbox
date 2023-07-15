@@ -69,7 +69,7 @@ set(ANTTWEAKBAR_SOURCE
 	AntTweakBar-1.16/src/TwOpenGL.cpp
 	AntTweakBar-1.16/src/TwOpenGLCore.cpp
 	AntTweakBar-1.16/src/TwPrecomp.cpp
-)
+		../tutorial03_matrices/GED/Mathematics/Vectors/vector3.cpp ../tutorial03_matrices/GED/Mathematics/Vectors/vector3.h ../tutorial03_matrices/GED/Mathematics/Matrices/matrix4.cpp ../tutorial03_matrices/GED/Mathematics/Matrices/matrix4.h)
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin") # If on Xcode, rename files to .mm
 file(COPY ${ANTTWEAKBAR_SOURCE} DESTINATION AntTweakBar-ObjectiveC/)
@@ -94,8 +94,7 @@ set(ANTTWEAKBAR_SOURCE
 	${CMAKE_BINARY_DIR}/external/AntTweakBar-ObjectiveC/TwMgr.mm
 	${CMAKE_BINARY_DIR}/external/AntTweakBar-ObjectiveC/TwOpenGL.mm
 	${CMAKE_BINARY_DIR}/external/AntTweakBar-ObjectiveC/TwOpenGLCore.mm
-	${CMAKE_BINARY_DIR}/external/AntTweakBar-ObjectiveC/TwPrecomp.mm
-)
+	${CMAKE_BINARY_DIR}/external/AntTweakBar-ObjectiveC/TwPrecomp.mm)
 include_directories(
 	${CMAKE_SOURCE_DIR}/external/AntTweakBar-1.16/src/
 )
@@ -127,8 +126,7 @@ set(ANTTWEAKBAR_HEADERS
 	AntTweakBar-1.16/src/TwMgr.h
 	AntTweakBar-1.16/src/TwOpenGL.h
 	AntTweakBar-1.16/src/TwOpenGLCore.h
-	AntTweakBar-1.16/src/TwPrecomp.h
-)
+	AntTweakBar-1.16/src/TwPrecomp.h ../tutorial03_matrices/GED/Mathematics/Matrices/test.cpp ../tutorial03_matrices/GED/Mathematics/Matrices/test.h)
 
 include_directories(
 	AntTweakBar-1.16/include/
@@ -136,8 +134,7 @@ include_directories(
 
 add_library( ANTTWEAKBAR_116_OGLCORE_GLFW STATIC
 	${ANTTWEAKBAR_SOURCE}
-	${ANTTWEAKBAR_HEADERS}
-)
+	${ANTTWEAKBAR_HEADERS})
 
 target_link_libraries(ANTTWEAKBAR_116_OGLCORE_GLFW
 	${OPENGL_LIBRARY}
@@ -177,4 +174,3 @@ add_subdirectory( bullet-2.81-rev2613/src/BulletSoftBody )
 add_subdirectory( bullet-2.81-rev2613/src/BulletCollision )
 add_subdirectory( bullet-2.81-rev2613/src/BulletDynamics )
 add_subdirectory( bullet-2.81-rev2613/src/LinearMath )
-

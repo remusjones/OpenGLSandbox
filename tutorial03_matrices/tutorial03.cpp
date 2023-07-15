@@ -1,7 +1,8 @@
 // Include standard headers
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <iostream>
+#include "GED/Mathematics/Vectors/vector3.h"
 // Include GLEW
 #include <GL/glew.h>
 
@@ -12,6 +13,10 @@ GLFWwindow* window;
 // Include GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+
+// include GED
+
+
 using namespace glm;
 
 #include <common/shader.hpp>
@@ -67,7 +72,7 @@ int main( void )
 	// Get a handle for our "MVP" uniform
 	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
 
-	// Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
+	// Projection matrix : 45ï¿½ Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
 	glm::mat4 Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f);
 	// Or, for an ortho camera :
 	//glm::mat4 Projection = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f); // In world coordinates
@@ -94,6 +99,19 @@ int main( void )
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
 
+
+    //
+    // Magnitude Comparisons
+    //
+
+    glm::vec3 vec3TestGLM = glm::vec3(1,2,3);
+    GED::vector3 vec3TestGED = GED::vector3(1,2,3);
+
+    std::cout << "glm: " << glm::length(vec3TestGLM) << "\n";
+    std::cout << "ged: " << vec3TestGED.magnitude() << "\n";
+    
+
+
 	do{
 
 		// Clear the screen
@@ -115,7 +133,7 @@ int main( void )
 			GL_FLOAT,           // type
 			GL_FALSE,           // normalized?
 			0,                  // stride
-			(void*)0            // array buffer offset
+            (void*)nullptr      // array buffer offset
 		);
 
 		// Draw the triangle !
